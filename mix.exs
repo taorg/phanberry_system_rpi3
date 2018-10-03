@@ -1,4 +1,4 @@
-defmodule NervesSystemRpi3.MixProject do
+defmodule PhanberrySystemRpi3.MixProject do
   use Mix.Project
 
   @app :nerves_system_rpi3
@@ -8,7 +8,7 @@ defmodule NervesSystemRpi3.MixProject do
 
   def project do
     [
-      app: @app,
+      @app :phanberry_rpi3,
       version: @version,
       elixir: "~> 1.6",
       compilers: Mix.compilers() ++ [:nerves_package],
@@ -63,10 +63,10 @@ defmodule NervesSystemRpi3.MixProject do
 
   defp package do
     [
-      maintainers: ["Frank Hunleth", "Justin Schneck"],
+      maintainers: ["Taorg", "Manolets"],
       files: package_files(),
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/nerves-project/#{@app}"}
+      links: %{"Github" => "https://github.com/taorg/phanberry_system_rpi3"}
     ]
   end
 
