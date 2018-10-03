@@ -1,7 +1,7 @@
-defmodule PhanberrySystemRpi3.MixProject do
+defmodule NervesSystemRpi3.MixProject do
   use Mix.Project
 
-  @app :phanberry_rpi3
+  @app :nerves_system_rpi3
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
            |> String.trim()
@@ -10,7 +10,7 @@ defmodule PhanberrySystemRpi3.MixProject do
     [
       app: @app,
       version: @version,
-      elixir: "~> 1.4",
+      elixir: "~> 1.6",
       compilers: Mix.compilers() ++ [:nerves_package],
       nerves_package: nerves_package(),
       description: description(),
@@ -47,11 +47,11 @@ defmodule PhanberrySystemRpi3.MixProject do
 
   defp deps do
     [
-      {:nerves, "~> 1.0", runtime: false},
-      {:nerves_system_br, "1.4.5", runtime: false},
+      {:nerves, "~> 1.3", runtime: false},
+      {:nerves_system_br, "1.5.2", runtime: false},
       {:nerves_toolchain_arm_unknown_linux_gnueabihf, "1.1.0", runtime: false},
       {:nerves_system_linter, "~> 0.3.0", runtime: false},
-      {:ex_doc, "~> 0.18", only: :dev}
+      {:ex_doc, "~> 0.18", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -63,10 +63,10 @@ defmodule PhanberrySystemRpi3.MixProject do
 
   defp package do
     [
-      maintainers: ["Taorg", "Manolets"],
+      maintainers: ["Frank Hunleth", "Justin Schneck"],
       files: package_files(),
       licenses: ["Apache 2.0"],
-      links: %{"Github" => "https://github.com/taorg/phanberry_system_rpi3"}
+      links: %{"GitHub" => "https://github.com/nerves-project/#{@app}"}
     ]
   end
 
@@ -80,7 +80,7 @@ defmodule PhanberrySystemRpi3.MixProject do
       "fwup-revert.conf",
       "fwup.conf",
       "LICENSE",
-      "linux-4.9.defconfig",
+      "linux-4.14.defconfig",
       "mix.exs",
       "nerves_defconfig",
       "post-build.sh",
