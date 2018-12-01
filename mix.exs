@@ -8,7 +8,7 @@ defmodule PhanberrySystemRpi3.MixProject do
 
   def project do
     [
-      @app :phanberry_rpi3,
+      app: @app,
       version: @version,
       elixir: "~> 1.6",
       compilers: Mix.compilers() ++ [:nerves_package],
